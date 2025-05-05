@@ -1,3 +1,19 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: black;
+}
+
 .text-center {
     text-align: center;
+}
+
+.draw {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    outline: none
 }
