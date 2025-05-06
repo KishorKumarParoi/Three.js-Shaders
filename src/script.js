@@ -93,7 +93,7 @@ const animate = () => {
     console.log("Elapsed Time: ", elapsedTime);
 
     // Rotate the first mesh (purple cube) over time
-    mesh.rotation.x = elapsedTime;
+    mesh.rotation.y = elapsedTime * Math.PI * 2;
 
     // Move the second mesh (green cube) along the x-axis over time
     meshT.position.x += 0.01;
