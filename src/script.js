@@ -1,6 +1,7 @@
 // Importing the Three.js library from a CDN
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.module.js';
 // import * as THREE from "../node_modules/three/build";
+import { gsap } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/index.js';
 
 console.log(THREE); // Log the THREE object to verify the library is loaded
 
@@ -21,6 +22,10 @@ const material = new THREE.MeshBasicMaterial({ color: 'purple' });
 
 // Combine geometry and material into a mesh
 const mesh = new THREE.Mesh(geometry, material);
+
+// gsap animation
+gsap.to(mesh.position, { x: 2, duration: 2, ease: 'power2.out' });
+gsap.to(mesh.position, { duration: 2, delay: 2, x: -2 })
 
 // Set the position and scale of the mesh
 mesh.position.z = 1; // Move the cube along the z-axis
