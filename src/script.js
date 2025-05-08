@@ -1,7 +1,7 @@
 // Importing the Three.js library from a CDN
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.module.js';
 // import * as THREE from "../node_modules/three/build";
-import { gsap } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/index.js';
+// import { gsap } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/index.js';
 
 console.log(THREE); // Log the THREE object to verify the library is loaded
 
@@ -24,8 +24,8 @@ const material = new THREE.MeshBasicMaterial({ color: 'purple' });
 const mesh = new THREE.Mesh(geometry, material);
 
 // gsap animation
-gsap.to(mesh.position, { x: 2, duration: 2, ease: 'power2.out' });
-gsap.to(mesh.position, { duration: 2, delay: 2, x: -2 })
+// gsap.to(mesh.position, { x: 2, duration: 2, ease: 'power2.out' });
+// gsap.to(mesh.position, { duration: 2, delay: 2, x: -2 })
 
 // Set the position and scale of the mesh
 mesh.position.z = 1; // Move the cube along the z-axis
@@ -43,6 +43,11 @@ const meshT = new THREE.Mesh(geometryT, materialT);
 
 // Set the position of the second mesh
 meshT.position.y = 2; // Move the cube along the y-axis
+meshT.position.x = 3;
+meshT.scale.y = 1;
+
+meshT.lookAt(mesh.position);
+// mesh.lookAt(meshT.position);
 
 // Add both meshes to the group
 group.add(mesh, meshT);
@@ -116,8 +121,8 @@ const animate = () => {
     // mesh.rotation.y = elapsedTime * Math.PI * 2;
 
     // Move the second mesh (green cube) along the x-axis over time
-    meshT.position.x = Math.sin(elapsedTime) * 2;
-    meshT.position.y = Math.sin(elapsedTime) * 2;
+    // meshT.position.x = Math.sin(elapsedTime) * 2;
+    // meshT.position.y = Math.sin(elapsedTime) * 2;
 
     // Re-render the scene with the updated positions
     renderer.render(scene, camera);
