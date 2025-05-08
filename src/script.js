@@ -92,6 +92,8 @@ window.addEventListener("resize", () => {
 
     // new Renderer Size
     renderer.setSize(aspect.width, aspect.height);
+    // set pixel ration
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 })
 
 /* ------------------- Animation Loop ------------------- */
@@ -102,7 +104,8 @@ const clock = new THREE.Clock();
 const animate = () => {
     // Get the elapsed time since the clock started
     const elapsedTime = clock.getElapsedTime();
-    console.log("Elapsed Time: ", elapsedTime);
+    // console.log("Elapsed Time: ", elapsedTime);
+    // console.log(window.devicePixelRatio);
 
     // Rotate the first mesh (purple cube) over time
     // mesh.rotation.y = elapsedTime * Math.PI * 2;
