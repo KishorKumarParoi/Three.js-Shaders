@@ -49,6 +49,18 @@ meshT.scale.y = 1;
 meshT.lookAt(mesh.position);
 // mesh.lookAt(meshT.position);
 
+// Mouse Listener
+const cursor = {
+    x: 0,
+    y: 0
+}
+
+window.addEventListener("mousemove", (event) => {
+    cursor.x = event.clientX;
+    cursor.y = event.clientY;
+    console.log(cursor);
+})
+
 // Add both meshes to the group
 group.add(mesh, meshT);
 
