@@ -46,7 +46,7 @@ meshT.position.y = 2; // Move the cube along the y-axis
 meshT.position.x = 3;
 meshT.scale.y = 1;
 
-meshT.lookAt(mesh.position);
+// meshT.lookAt(mesh.position);
 // mesh.lookAt(meshT.position);
 
 // Mouse Listener
@@ -56,8 +56,8 @@ const cursor = {
 }
 
 window.addEventListener("mousemove", (event) => {
-    cursor.x = event.clientX;
-    cursor.y = event.clientY;
+    cursor.x = event.clientX / window.innerWidth - 0.5;
+    cursor.y = event.clientY / window.innerHeight - 0.5;
     console.log(cursor);
 })
 
@@ -135,6 +135,8 @@ const animate = () => {
     // Move the second mesh (green cube) along the x-axis over time
     // meshT.position.x = Math.sin(elapsedTime) * 2;
     // meshT.position.y = Math.sin(elapsedTime) * 2;
+    // LookAt
+    mesh.lookAt(new THREE.Vector3(cursor.x, cursor.y, 1));
 
     // Re-render the scene with the updated positions
     renderer.render(scene, camera);
