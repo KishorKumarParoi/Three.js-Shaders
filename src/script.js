@@ -78,11 +78,13 @@ const aspect = {
 };
 
 // Create a perspective camera
-const camera = new THREE.PerspectiveCamera(75, aspect.width / aspect.height);
+// const camera = new THREE.PerspectiveCamera(75, aspect.width / aspect.height);
+const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 1, 1000);
+scene.add(camera);
 
 // Set the camera's position
-camera.position.x = 1; // Move the camera along the x-axis
-camera.position.y = 1; // Move the camera along the y-axis
+// camera.position.x = 1; // Move the camera along the x-axis
+// camera.position.y = 1; // Move the camera along the y-axis
 camera.position.z = 5; // Move the camera along the z-axis
 
 // Add an axes helper to visualize the coordinate system
@@ -117,6 +119,12 @@ window.addEventListener("resize", () => {
     // set pixel ration
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 })
+
+const geo = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+const mat = new THREE.MeshBasicMaterial({ color: "Blue" });
+const greMesh = new THREE.Mesh(geo, mat);
+
+scene.add(greMesh);
 
 /* ------------------- Animation Loop ------------------- */
 // Create a clock to track elapsed time
