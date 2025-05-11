@@ -1,8 +1,9 @@
 // Importing the Three.js library from a CDN
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.155.0/examples/jsm/controls/OrbitControls.js';
+
 // import * as THREE from "../node_modules/three/build";
 // import { gsap } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/index.js';
-
 console.log(THREE); // Log the THREE object to verify the library is loaded
 
 /* ------------------- Scene, Mesh, Camera, and Renderer Setup ------------------- */
@@ -125,6 +126,9 @@ const mat = new THREE.MeshBasicMaterial({ color: "Blue" });
 const greMesh = new THREE.Mesh(geo, mat);
 
 scene.add(greMesh);
+
+const controls = new OrbitControls(camera, canvas);
+console.log(controls);
 
 /* ------------------- Animation Loop ------------------- */
 // Create a clock to track elapsed time
